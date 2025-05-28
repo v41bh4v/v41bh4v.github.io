@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+    <!-- Core Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatorSuite Pro - All-in-One Platform for Gen Z Creators</title>
+    
+    <!-- Core Styles & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-gradient: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%); }
+        .bg-primary-gradient { background: var(--primary-gradient); }
+    </style>
+</head>
+
+<body class="dark:bg-zinc-900 dark:text-white transition-colors">
+    
+    <!-- I. Hero Section - Value Proposition -->
+    <section class="min-h-screen flex items-center px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 font-satoshi">
+                Create. <span class="bg-clip-text text-transparent bg-primary-gradient">Collaborate.</span> Conquer.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+                Multi-platform publishing, AI magic, and creator community - all in one place
+            </p>
+            
+            <!-- CTA & App Store Badges -->
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <button class="bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform">
+                    Start Free Trial
+                </button>
+                <div class="flex gap-4 justify-center">
+                    <img src="app-store.svg" alt="App Store" class="h-12">
+                    <img src="play-store.svg" alt="Play Store" class="h-12">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- II. Multi-Platform Upload Section -->
+    <section class="py-20 px-6 bg-gray-50 dark:bg-zinc-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Upload Once, Publish Everywhere</h2>
+            
+            <!-- Platform Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- YouTube -->
+                <div class="platform-card bg-white dark:bg-zinc-700 p-6 rounded-xl shadow-lg">
+                    <img src="youtube-icon.svg" alt="YouTube" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-bold mb-2">YouTube Optimization</h3>
+                    <p class="text-gray-600 dark:text-gray-300">MP4, MOV, AVI • Up to 12 hrs • Auto chapters, end screens</p>
+                </div>
+
+                <!-- TikTok -->
+                <div class="platform-card bg-white dark:bg-zinc-700 p-6 rounded-xl shadow-lg">
+                    <img src="tiktok-icon.svg" alt="TikTok" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-bold mb-2">TikTok Publishing</h3>
+                    <p class="text-gray-600 dark:text-gray-300">MP4 • Max 10 mins • Auto captions, trends tagging</p>
+                </div>
+
+                <!-- Instagram -->
+                <div class="platform-card bg-white dark:bg-zinc-700 p-6 rounded-xl shadow-lg">
+                    <img src="instagram-icon.svg" alt="Instagram" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-bold mb-2">Instagram Posts & Reels</h3>
+                    <p class="text-gray-600 dark:text-gray-300">MP4, MOV • 90s Reels / 15m Posts • Auto crop, filters</p>
+                </div>
+
+                <!-- Facebook -->
+                <div class="platform-card bg-white dark:bg-zinc-700 p-6 rounded-xl shadow-lg">
+                    <img src="facebook-icon.svg" alt="Facebook" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-bold mb-2">Facebook Integration</h3>
+                    <p class="text-gray-600 dark:text-gray-300">MP4, MOV • Up to 240 mins • Auto tagging, audience targeting</p>
+                </div>
+
+                <!-- Twitter (X) -->
+                <div class="platform-card bg-white dark:bg-zinc-700 p-6 rounded-xl shadow-lg">
+                    <img src="twitter-icon.svg" alt="Twitter" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-bold mb-2">X (Twitter) Sync</h3>
+                    <p class="text-gray-600 dark:text-gray-300">MP4, MOV • Max 2m20s • Auto trimming, hashtags</p>
+                </div>
+            </div>
+
+
+            
+
+            <!-- Upload Demo -->
+            <div class="bg-black rounded-2xl p-1 shadow-2xl">
+                <div class="rounded-xl overflow-hidden">
+                    <!-- Drag & Drop Upload Interface -->
+                    <div class="upload-zone bg-zinc-900 p-8 text-center">
+                        <div class="border-2 border-dashed border-gray-700 rounded-xl py-16">
+                            <p class="text-gray-400 mb-4">Drag video here or click to upload</p>
+                            <input type="file" class="hidden" id="video-upload">
+                            <div class="flex justify-center gap-4">
+                                <button class="bg-primary-gradient text-white px-6 py-2 rounded-full">
+                                    Choose File
+                                </button>
+                                <span class="text-gray-400">MP4, MOV, AVI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- III. AI Tools Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">AI-Powered Creator Toolkit</h2>
+            
+            <!-- AI Feature Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="ai-card p-6 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 text-white">
+                    <h3 class="text-2xl font-bold mb-4">Smart Repurposing</h3>
+                    <p class="mb-4">Auto-convert long videos to Shorts/Reels with perfect cuts</p>
+                    <div class="badge bg-black/20 px-3 py-1 rounded-full text-sm">Beta</div>
+                </div>
+
+                <!-- AI Scheduler -->
+                <div class="ai-card p-6 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-700 text-white">
+                    <h3 class="text-2xl font-bold mb-4">AI Scheduler</h3>
+                    <p class="mb-4">Schedule your videos at optimal times based on real-time audience activity and engagement data.</p>
+                    <div class="badge bg-black/20 px-3 py-1 rounded-full text-sm">Smart Timing</div>
+                </div>
+
+                <!-- AI Video Editor -->
+                <div class="ai-card p-6 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 text-white">
+                    <h3 class="text-2xl font-bold mb-4">AI Video Editor</h3>
+                    <p class="mb-4">Smartly edits your videos with auto-cuts, transitions, and effects.</p>
+                    <div class="badge bg-black/20 px-3 py-1 rounded-full text-sm">Pro Tools</div>
+
+
+                <!-- Add more AI feature cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- IV. Community Section -->
+    <section class="py-20 px-6 bg-gray-50 dark:bg-zinc-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Collaborate & Grow Together</h2>
+            
+            <!-- Swipeable Creator Grid -->
+                <div class="creator-grid overflow-x-auto whitespace-nowrap px-4 no-scrollbar">
+                    <div class="flex gap-4 w-max" id="creator-cards">
+                        <!-- <div class="creator-grid overflow-x-auto whitespace-nowrap px-4 no-scrollbar touch-auto scroll-smooth"> -->
+
+                    <!-- Creator Profile Cards -->
+                    <div class="creator-card min-w-[300px] bg-white dark:bg-zinc-700 rounded-xl p-6 m-4 shadow-lg">
+                        <img src="creator-1.jpg" alt="Sasha" class="w-20 h-20 rounded-full mx-auto mb-4">
+                        <h4 class="text-xl font-bold text-center">@DigitalSasha</h4>
+                        <div class="flex justify-center gap-2 my-4">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Fashion</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">500K+</span>
+                        </div>
+                        <button class="bg-primary-gradient text-white w-full py-2 rounded-full">
+                            Collab Request
+                        </button>
+                    </div>
+
+                    <div class="creator-card min-w-[300px] bg-white dark:bg-zinc-700 rounded-xl p-6 m-4 shadow-lg">
+                        <img src="creator-2.jpg" alt="Jake" class="w-20 h-20 rounded-full mx-auto mb-4">
+                        <h4 class="text-xl font-bold text-center">@JakeExplores</h4>
+                        <div class="flex justify-center gap-2 my-4">
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Travel</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">1.2M</span>
+                        </div>
+                        <button class="bg-primary-gradient text-white w-full py-2 rounded-full">
+                            Collab Request
+                        </button>
+                    </div>
+
+                    <div class="creator-card min-w-[300px] bg-white dark:bg-zinc-700 rounded-xl p-6 m-4 shadow-lg">
+                        <img src="creator-3.jpg" alt="Aria" class="w-20 h-20 rounded-full mx-auto mb-4">
+                        <h4 class="text-xl font-bold text-center">@ChefAria</h4>
+                        <div class="flex justify-center gap-2 my-4">
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded">Food</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">900K</span>
+                        </div>
+                        <button class="bg-primary-gradient text-white w-full py-2 rounded-full">
+                            Collab Request
+                        </button>
+                    </div>
+
+                    <div class="creator-card min-w-[300px] bg-white dark:bg-zinc-700 rounded-xl p-6 m-4 shadow-lg">
+                        <img src="creator-4.jpg" alt="Milo" class="w-20 h-20 rounded-full mx-auto mb-4">
+                        <h4 class="text-xl font-bold text-center">@TechMilo</h4>
+                        <div class="flex justify-center gap-2 my-4">
+                            <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded">Tech</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">800K+</span>
+                        </div>
+                        <button class="bg-primary-gradient text-white w-full py-2 rounded-full">
+                            Collab Request
+                        </button>
+                    </div>
+
+                    <div class="creator-card min-w-[300px] bg-white dark:bg-zinc-700 rounded-xl p-6 m-4 shadow-lg">
+                        <img src="creator-5.jpg" alt="Luna" class="w-20 h-20 rounded-full mx-auto mb-4">
+                        <h4 class="text-xl font-bold text-center">@LunaSings</h4>
+                        <div class="flex justify-center gap-2 my-4">
+                            <span class="bg-pink-100 text-pink-800 px-2 py-1 rounded">Music</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">1.5M</span>
+                        </div>
+                        <button class="bg-primary-gradient text-white w-full py-2 rounded-full">
+                            Collab Request
+                        </button>
+                    </div>
+
+                    <!-- More creator cards -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- V. Brand Promotion & Offerings -->
+
+    <section class="py-20 px-6 bg-white dark:bg-zinc-900" id="brands">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Brand Promotion & Offers</h2>
+            <p class="text-center text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+                Explore collaboration opportunities with top startups and brands offering product showcases, paid promotions, discount campaigns, and more.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Example Brand Card -->
+                <div onclick="showBrandPopup('BrandX')" class="cursor-pointer bg-white dark:bg-zinc-800 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform">
+                    <img src="brandx-logo.png" alt="BrandX Logo" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-center mb-2">BrandX</h3>
+                    <p class="text-center text-sm text-gray-500 dark:text-gray-400">🛍️ Brand Collaboration • 💸 Cash • 🎁 Free Products • 🎟️ Coupons</p>
+                </div>
+
+                <div onclick="showBrandPopup('GlowSkincare')" class="cursor-pointer bg-white dark:bg-zinc-800 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform">
+                    <img src="glowskin-logo.png" alt="Glow Skincare Logo" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-center mb-2">Glow Skincare</h3>
+                    <p class="text-center text-sm text-gray-500 dark:text-gray-400">🧴 Product Sponsorship • 💬 Testimonials • 🤑 Affiliate Commissions</p>
+                </div>
+
+                <div onclick="showBrandPopup('FitFuel')" class="cursor-pointer bg-white dark:bg-zinc-800 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform">
+                    <img src="fitfuel-logo.png" alt="FitFuel Logo" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-center mb-2">FitFuel</h3>
+                    <p class="text-center text-sm text-gray-500 dark:text-gray-400">🏋️‍♀️ Fitness Gear • 🎥 Reel Collab • 🏷️ Discount Codes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Mobile Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-zinc-800 shadow-t-2xl md:hidden">
+        <div class="flex justify-around p-4">
+            <a href="#upload" class="nav-icon">📤</a>
+            <a href="#ai" class="nav-icon">🤖</a>
+            <a href="#community" class="nav-icon">👥</a>
+            <a href="#profile" class="nav-icon">👤</a>
+        </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Detection
+        const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // Upload Handling
+        document.getElementById('video-upload').addEventListener('change', handleUpload);
+        
+        function handleUpload(e) {
+            const file = e.target.files[0];
+            // Implement chunked upload logic here
+        }
+
+        // Swipe Handling for Creator Grid
+        let touchStartX = 0;
+        const creatorGrid = document.getElementById('creator-cards');
+        
+        creatorGrid.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        creatorGrid.addEventListener('touchend', e => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                // Handle swipe navigation
+            }
+        });
+    </script>
+        <!-- Modal for Brand Details -->
+    <div id="brand-modal" class="fixed inset-0 z-50 hidden bg-black/70 flex items-center justify-center">
+        <div class="bg-white dark:bg-zinc-900 text-black dark:text-white rounded-xl p-8 max-w-xl w-full shadow-2xl relative">
+            <button onclick="closeBrandPopup()" class="absolute top-4 right-4 text-2xl font-bold text-gray-700 dark:text-gray-300">×</button>
+            <h3 id="brand-title" class="text-2xl font-bold mb-4">Brand Title</h3>
+            <p id="brand-details" class="text-gray-700 dark:text-gray-300 whitespace-pre-wrap text-base"></p>
+        </div>
+    </div>
+
+    <script>
+        const brandData = {
+            "BrandX": {
+                title: "BrandX - Smart Lifestyle Gadgets",
+                details: `🔹 Offer Type: Sponsored Post, Unboxing Video\n🔹 Incentives: ₹5,000 per video + Product Giveaway\n🔹 Niche: Tech, Lifestyle\n🔹 Requirements: 50K+ Followers, India-based, 2-week delivery\n🔹 Guidelines:\n  - Showcase usage & unboxing\n  - Mention 10% coupon code\n  - Post on Instagram Reels & YouTube Shorts`
+            },
+            "GlowSkincare": {
+                title: "Glow Skincare - Organic Beauty Products",
+                details: `🔹 Offer Type: Review + Affiliate\n🔹 Incentives: Free Skincare Kit + 15% Sales Commission\n🔹 Niche: Beauty, Wellness\n🔹 Requirements: Micro-influencers (10k+), Female\n🔹 Guidelines:\n  - Create a morning/night skincare routine video\n  - Mention ingredients and results\n  - Tag @GlowSkincare & use #GlowWithUs`
+            },
+            "FitFuel": {
+                title: "FitFuel - Protein Bars & Shakes",
+                details: `🔹 Offer Type: Reels Collab + Shoutout\n🔹 Incentives: Free 3-month pack + ₹2,000 per reel\n🔹 Niche: Fitness, Health, Nutrition\n🔹 Requirements: 20K+ followers, fitness niche\n🔹 Guidelines:\n  - Share gym or workout routine using FitFuel\n  - Include discount code “FIT20” in caption\n  - Use branded hashtag #FuelWithFitFuel`
+            }
+        };
+
+        function showBrandPopup(brandKey) {
+            const data = brandData[brandKey];
+            document.getElementById("brand-title").innerText = data.title;
+            document.getElementById("brand-details").innerText = data.details;
+            document.getElementById("brand-modal").classList.remove("hidden");
+        }
+
+        function closeBrandPopup() {
+            document.getElementById("brand-modal").classList.add("hidden");
+        }
+    </script>
+    <!-- Footer -->
+<footer class="bg-white dark:bg-zinc-900 text-black dark:text-white py-16 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+        <!-- Column 1: About -->
+        <div>
+            <h4 class="font-bold mb-4">CreatorFlow</h4>
+            <ul class="space-y-2">
+                <li><a href="#" class="text-green-600 hover:underline">About Us</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Pricing</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Features -->
+        <div>
+            <h4 class="font-bold mb-4">Features</h4>
+            <ul class="space-y-2">
+                <li><a href="#" class="text-green-600 hover:underline">Analytics</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Marketplace</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">CRM Tools</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Creator Search</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Outreach</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Top Stories -->
+        <div>
+            <h4 class="font-bold mb-4">Top Stories</h4>
+            <ul class="space-y-2">
+                <li><a href="#" class="text-green-600 hover:underline">Instagram Influencers</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">YouTube Influencers</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">TikTok Influencers</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Micro Influencers</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Social Media Trends</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Resources -->
+        <div>
+            <h4 class="font-bold mb-4">Resources</h4>
+            <ul class="space-y-2">
+                <li><a href="#" class="text-green-600 hover:underline">Help Center</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Blog</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Case Studies</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Engagement Calculators</a></li>
+                <li><a href="#" class="text-green-600 hover:underline">Follower Check Tools</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+        <p>©2025 All Rights Reserved, CreatorFlow</p>
+        <div class="flex items-center gap-4 mt-4 md:mt-0">
+            <a href="#" class="text-green-600 hover:underline">Privacy Policy</a>
+            <a href="#" class="text-green-600 hover:underline">Terms of Service</a>
+            <a href="#" class="text-green-600 hover:underline">Cookies Policy</a>
+        </div>
+        <div class="flex items-center gap-4 mt-4 md:mt-0">
+            <select class="bg-gray-100 dark:bg-zinc-700 text-sm px-2 py-1 rounded">
+                <option>EN</option>
+                <option>ES</option>
+            </select>
+            <a href="#"><img src="instagram-icon.svg" alt="Instagram" class="h-5"></a>
+            <a href="#"><img src="linkedin-icon.svg" alt="LinkedIn" class="h-5"></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
