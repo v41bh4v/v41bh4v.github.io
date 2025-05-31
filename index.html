@@ -7,57 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- 
-        Application Structure Plan:
-        This single-page interactive web application is designed as a compelling pitch deck for a Silicon Valley audience, focusing on the disruption, benefits, and ROI of modern multi-platform video publishing solutions.
-        1.  Hero/Vision: A bold introduction highlighting the massive market opportunity and the core problem being solved.
-        2.  The Problem Amplified: Quantifies the inefficiencies and challenges faced by creators and businesses in multi-platform distribution, emphasizing the "why now."
-        3.  The Disruptive Solution: Introduces the core architectural components that enable automated, efficient, and scalable publishing, framed as the fundamental market shift.
-        4.  Quantifiable Impact & Benefits: Demonstrates the tangible gains for users (time saved, increased reach, engagement), using clear visualizations to underscore the value proposition.
-        5.  The ROI Story: Directly links the benefits to financial returns, illustrating how streamlined publishing translates into increased monetization and reduced operational costs.
-        6.  Business Model: Clearly defines the revenue streams and pricing strategy.
-        7.  Competitive Landscape & Moat: Positions ZYNC against competitors and highlights its defensible advantages.
-        8.  Team: Introduces the core team and their relevant expertise.
-        9.  The Ask & Financials: Details funding request, use of funds, and high-level financial projections.
-        10. Call to Action: Concludes with contact information and an invitation for further engagement.
-        This narrative flow is chosen to capture attention, define a clear problem, present a game-changing solution, provide evidence of its impact, articulate a compelling financial upside, crucial for a pitch. Interactivity focuses on data exploration and emphasizing key takeaways.
-    -->
-
-    <!-- 
-        Visualization & Content Choices:
-        - Section 1 (Hero):
-            - Creator Economy Value (TAM/Projected Growth): Bold, animated single stats (HTML/CSS/JS for animation). Goal: Inform/Impact. Justification: Sets the scale of the opportunity.
-        - Section 2 (Problem Amplified):
-            - Creator Burnout Rate: Prominent stat (HTML/CSS). Goal: Inform/Problem Framing. Justification: Highlights the human cost of current inefficiencies.
-            - Time Spent vs. Value (Synthesized): Bar Chart (Chart.js Canvas). Goal: Compare/Inform. Justification: Visually quantifies the inefficiency, showing hours spent on non-value-add tasks.
-            - Platform Fragmentation Pain Points: Icon-list with brief text (HTML/CSS). Goal: Organize/Inform. Justification: Enumerates the core challenges clearly.
-        - Section 3 (Disruptive Solution):
-            - Pillars of Modern Publishing: Simple, icon-driven diagram (HTML/CSS). Goal: Organize/Inform. Justification: Quickly conveys the key technological differentiators.
-        - Section 4 (Quantifiable Impact):
-            - Efficiency Gain (Time Saved): Percentage stat with an uplifting tone (HTML/CSS). Goal: Inform/Benefit.
-            - Engagement & Reach Growth (Projected): Line Chart (Chart.js Canvas). Goal: Change/Inform. Justification: Visualizes the positive trajectory and scalability.
-            - Monetization Stream Diversification: Donut Chart (Chart.js Canvas). Goal: Inform/Strategy. Justification: Shows how efficient tools enable broader revenue avenues.
-        - Section 5 (ROI Story):
-            - Estimated Revenue Increase with Automation: Stat/Callout (HTML/CSS). Goal: Inform/ROI.
-            - Cost Reduction Areas: List (HTML/CSS). Goal: Inform/ROI.
-            - ROI Summary: Textual synthesis (HTML/CSS). Goal: Inform/ROI.
-        - Section 6 (Business Model):
-            - Revenue Streams Breakdown: List/Text (HTML/CSS). Goal: Inform.
-            - Tiered Pricing Overview: Table/Text (HTML/CSS). Goal: Inform.
-        - Section 7 (Competition & Moat):
-            - Competitive Matrix: 2x2 grid (HTML/CSS). Goal: Compare/Position.
-            - Defensible Advantage: Icon List (HTML/CSS). Goal: Inform.
-        - Section 8 (Team):
-            - Team Member Profiles: Text/Placeholders (HTML/CSS). Goal: Inform.
-        - Section 9 (Ask & Financials):
-            - Use of Funds Breakdown: Text/List (HTML/CSS). Goal: Inform.
-            - Financial Projections: Line Chart (Chart.js Canvas). Goal: Change/Inform.
-        - Section 10 (Call to Action):
-            - Contact Info: Text (HTML/CSS). Goal: Inform.
-        All Chart.js instances will use Canvas rendering. Diagrams will use structured HTML/CSS with Tailwind. Label wrapping (16-char logic) and tooltip configuration will be applied to all Chart.js charts.
-        CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
-    -->
-
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -120,7 +69,7 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background-color: #E2E8F0; /* Light gray placeholder */
+            background-color: #E2E8F0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -143,84 +92,107 @@
             border-color: #118AB2;
             font-weight: 600;
         }
+        .flywheel-step {
+            border: 2px solid #118AB2;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            background: white;
+            position: relative;
+            z-index: 2;
+        }
+        .flywheel-arrow {
+            position: absolute;
+            font-size: 3rem;
+            color: #06D6A0;
+            z-index: 1;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <div class="container px-4 py-8 md:px-6 md:py-12">
 
+        <!-- Slide 1: Hero -->
         <section id="slide-1" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
-            <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold section-title leading-tight mb-6 animate-fade-in-down">
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold section-title leading-tight mb-6">
                 ZYNC
             </h1>
-            <p class="text-2xl md:text-3xl text-gray-700 max-w-4xl mx-auto mb-10 animate-fade-in">
+            <p class="text-2xl md:text-3xl text-gray-700 max-w-4xl mx-auto mb-10">
                 Upload Once, Publish Everywhere
             </p>
             <p class="text-lg md:text-xl text-gray-600 mb-4">Presented by: Vaibhav Kumar, CEO</p>
             <p class="text-md text-gray-500">May 27, 2025</p>
         </section>
 
+        <!-- Slide 2: Vision -->
         <section id="slide-2" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
-            <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-8 animate-fade-in-down">
+            <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-8">
                 Empowering the Next Generation of Digital Storytelling
             </h2>
-            <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12 animate-fade-in">
+            <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
                 Our audacious vision is to <b>eliminate content fragmentation</b>, making multi-platform video publishing seamless, intelligent, and universally accessible for every creator and brand.
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto animate-fade-in-up">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
                 <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <p class="text-5xl md:text-6xl font-bold stat-value mb-2">$250B+</p>
-                    <p class="text-md md:text-lg text-gray-600">Current Creator Economy Value</p>
+                    <p class="text-5xl md:text-6xl font-bold stat-value mb-2">$480B+</p>
+                    <p class="text-md md:text-lg text-gray-600">Projected Creator Economy by 2027</p>
                 </div>
                 <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
                     <p class="text-5xl md:text-6xl font-bold stat-value mb-2">82%</p>
-                    <p class="text-md md:text-lg text-gray-600">Of all internet traffic projected to be video by 2025</p>
+                    <p class="text-md md:text-lg text-gray-600">Internet traffic projected to be video by 2025</p>
                 </div>
             </div>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto mt-12 animate-fade-in">
-                The exponential growth of the creator economy and video consumption demands a unified solution, and the time for ZYNC is now.
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mt-12">
+                The exponential growth of the creator economy demands a unified solution, and the time for ZYNC is now.
             </p>
         </section>
 
+        <!-- Slide 3: The Problem -->
         <section id="slide-3" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
             <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                The Creator's Conundrum: Fragmented Workflows & Lost Potential
+                The Creator's Conundrum: Fragmented Workflows
             </h2>
             <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                Gen Z creators face a disjointed content workflow, juggling multiple platforms, inconsistent video specs, and time-consuming brand outreach. This hinders creativity, reach, and monetization.
+                Gen Z creators face a disjointed content workflow, juggling multiple platforms and manual processes.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center max-w-5xl mx-auto">
                 <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <p class="text-5xl md:text-6xl font-bold highlight-text-1 mb-2">73%</p>
-                    <p class="text-md md:text-lg text-gray-600 mb-6 text-center">of content creators suffer from burnout (Awin/ShareASale Research)</p>
-                    <h3 class="text-2xl font-semibold subsection-title mb-4 text-center">Time Lost: Manual Multi-Platform Management</h3>
-                    <p class="text-gray-600 mb-6 text-center text-sm">Creators spend excessive hours on repetitive tasks, diverting focus from creative work.</p>
+                    <p class="text-5xl md:text-6xl font-bold highlight-text-1 mb-2">16+</p>
+                    <p class="text-md md:text-lg text-gray-600 mb-6 text-center">Hours wasted weekly on manual publishing</p>
                     <div class="chart-container h-[250px] md:h-[300px]">
                         <canvas id="timeWastedChart"></canvas>
                     </div>
                 </div>
                 <div class="card p-6 md:p-8">
-                    <h3 class="text-2xl font-semibold subsection-title mb-6 text-center">Current Solutions & Their Flaws</h3>
+                    <h3 class="text-2xl font-semibold subsection-title mb-6 text-center">Critical Pain Points</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <span class="text-2xl mr-3 highlight-text-1">🚫</span>
                             <div>
-                                <h4 class="font-semibold text-lg">Disjointed Tools</h4>
-                                <p class="text-gray-600 text-sm">Reliance on separate scheduling tools, basic editors, and manual platform interfaces.</p>
+                                <h4 class="font-semibold text-lg">Platform Fragmentation</h4>
+                                <p class="text-gray-600 text-sm">Different specs, formats, and interfaces for each platform</p>
                             </div>
                         </li>
                         <li class="flex items-start">
                             <span class="text-2xl mr-3 highlight-text-2">📈</span>
                             <div>
-                                <h4 class="font-semibold text-lg">Inconsistent Branding & Specs</h4>
-                                <p class="text-gray-600 text-sm">Manual adaptation leads to errors, inconsistent brand presence, and missed platform-specific optimizations.</p>
+                                <h4 class="font-semibold text-lg">Inefficient Adaptation</h4>
+                                <p class="text-gray-600 text-sm">Manual conversion of long videos to Shorts/Reels</p>
                             </div>
                         </li>
                         <li class="flex items-start">
                             <span class="text-2xl mr-3 highlight-text-3">🤝</span>
                             <div>
-                                <h4 class="font-semibold text-lg">Inefficient Brand Outreach</h4>
-                                <p class="text-gray-600 text-sm">Creators struggle to find relevant brand collaborations; brands struggle to discover authentic voices at scale.</p>
+                                <h4 class="font-semibold text-lg">Monetization Friction</h4>
+                                <p class="text-gray-600 text-sm">Difficult discovery of relevant brand partnerships</p>
                             </div>
                         </li>
                     </ul>
@@ -228,801 +200,700 @@
             </div>
         </section>
 
+        <!-- Slide 4: ZYNC Solution -->
         <section id="slide-4" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
             <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                ZYNC: Your Unified Content Command Center
+                ZYNC: The Complete Creator Operating System
             </h2>
             <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                ZYNC is the all-in-one, mobile-first solution that streamlines video publishing, automates optimization, and connects Gen Z creators with relevant brand collaborations.
+                The only platform that handles the entire content lifecycle in one place
             </p>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
+                <!-- Feature 1 -->
+                <div class="card p-6 md:p-8 flex flex-col items-center justify-center feature-card">
                     <div class="text-5xl mb-4 highlight-text-4">🔁</div>
                     <h3 class="text-2xl font-semibold subsection-title mb-3">One-Click Cross-Platform Publishing</h3>
-                    <p class="text-gray-600 text-sm">Upload once, and ZYNC intelligently formats, optimizes, and distributes videos to YouTube, Instagram, TikTok, X, Facebook, and LinkedIn—each with platform-specific previews and metadata compliance.</p>
+                    <p class="text-gray-600 text-sm">Upload once, publish everywhere with AI-powered optimization</p>
+                    <div class="mt-4 p-3 bg-blue-50 rounded-lg">
+                        <p class="text-sm font-semibold">UNIQUE ADVANTAGE:</p>
+                        <p class="text-xs">Automates what tools like Later charge $200+/month for</p>
+                    </div>
                 </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
+                
+                <!-- Feature 2 -->
+                <div class="card p-6 md:p-8 flex flex-col items-center justify-center feature-card">
                     <div class="text-5xl mb-4 highlight-text-3">🧠</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">AI-Driven Content Adaptation</h3>
-                    <p class="text-gray-600 text-sm">Instantly convert long videos into Reels, Shorts, and Stories using AI-powered cropping, captioning, and mood-based music suggestions—saving hours of manual editing.</p>
+                    <h3 class="text-2xl font-semibold subsection-title mb-3">Intelligent Video Adaptation</h3>
+                    <p class="text-gray-600 text-sm">Convert long videos to Shorts/Reels with AI cropping and captions</p>
+                    <div class="mt-4 p-3 bg-green-50 rounded-lg">
+                        <p class="text-sm font-semibold">UNIQUE ADVANTAGE:</p>
+                        <p class="text-xs">More advanced than Invideo's basic editing at half the price</p>
+                    </div>
                 </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
+                
+                <!-- Feature 3 -->
+                <div class="card p-6 md:p-8 flex flex-col items-center justify-center feature-card">
                     <div class="text-5xl mb-4 highlight-text-2">📊</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Unified Creator Analytics Dashboard</h3>
-                    <p class="text-gray-600 text-sm">Track performance (views, engagement, audience growth) across all platforms in one place, including collaborative campaign metrics for brand deals.</p>
+                    <h3 class="text-2xl font-semibold subsection-title mb-3">Unified Analytics Dashboard</h3>
+                    <p class="text-gray-600 text-sm">Track performance across all platforms in one view</p>
+                    <div class="mt-4 p-3 bg-yellow-50 rounded-lg">
+                        <p class="text-sm font-semibold">UNIQUE ADVANTAGE:</p>
+                        <p class="text-xs">Replaces Hootsuite ($249/month) + Google Analytics</p>
+                    </div>
                 </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
+                
+                <!-- Feature 4 -->
+                <div class="card p-6 md:p-8 flex flex-col items-center justify-center feature-card">
                     <div class="text-5xl mb-4 highlight-text-1">🤝</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Creator-Brand Matchmaking Engine</h3>
-                    <p class="text-gray-600 text-sm">Intelligent matching algorithm connects creators with brand campaigns based on content themes, audience overlap, and engagement metrics.</p>
+                    <h3 class="text-2xl font-semibold subsection-title mb-3">Brand Matchmaking Engine</h3>
+                    <p class="text-gray-600 text-sm">AI-powered connections with relevant brand collaborations</p>
+                    <div class="mt-4 p-3 bg-red-50 rounded-lg">
+                        <p class="text-sm font-semibold">UNIQUE ADVANTAGE:</p>
+                        <p class="text-xs">Better rev share (85/15) than ShopMy (82/18)</p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Slide 5: Workflow -->
         <section id="slide-5" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
             <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                The ZYNC Workflow: Seamless & Intelligent
+                The ZYNC Advantage: 10X Efficiency
             </h2>
             <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                ZYNC simplifies the entire content lifecycle, from raw footage to multi-platform success, through an intuitive, automated pipeline.
+                Transform 16 hours of weekly work into 30 minutes
             </p>
-            <div class="w-full max-w-4xl mx-auto">
+            
+            <div class="w-full max-w-4xl mx-auto mb-12">
                 <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 text-sm">
                     <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-48 md:w-auto">
                         <span class="text-2xl mb-2 block">⬆️</span>
                         <p class="font-semibold">1. Upload Once</p>
-                        <p class="text-xs text-gray-700">Single video upload to ZYNC's secure cloud.</p>
                     </div>
                     <div class="flowchart-arrow text-2xl md:text-4xl">→</div>
                     <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-48 md:w-auto">
                         <span class="text-2xl mb-2 block">🧠</span>
-                        <p class="font-semibold">2. AI Optimize & Adapt</p>
-                        <p class="text-xs text-gray-700">AI processes, crops, captions, and suggests for each platform.</p>
+                        <p class="font-semibold">2. AI Optimization</p>
                     </div>
                     <div class="flowchart-arrow text-2xl md:text-4xl">→</div>
                     <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-48 md:w-auto">
                         <span class="text-2xl mb-2 block">✅</span>
-                        <p class="font-semibold">3. Review & Publish</p>
-                        <p class="text-xs text-gray-700">Platform-specific previews; one-click publish to all selected channels.</p>
+                        <p class="font-semibold">3. Publish Everywhere</p>
                     </div>
                     <div class="flowchart-arrow text-2xl md:text-4xl">→</div>
                     <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-48 md:w-auto">
-                        <span class="text-2xl mb-2 block">📊</span>
-                        <p class="font-semibold">4. Track & Connect</p>
-                        <p class="text-xs text-gray-700">Unified analytics; intelligent brand matchmaking.</p>
+                        <span class="text-2xl mb-2 block">💰</span>
+                        <p class="font-semibold">4. Monetize</p>
                     </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-4">Before ZYNC</h3>
+                    <ul class="space-y-3 text-left text-sm">
+                        <li class="flex items-start">
+                            <span class="text-red-500 text-xl mr-2">⨯</span>
+                            <span>16+ hours/week manual work</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 text-xl mr-2">⨯</span>
+                            <span>5+ different tools required</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 text-xl mr-2">⨯</span>
+                            <span>Inconsistent branding across platforms</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 text-xl mr-2">⨯</span>
+                            <span>Missed monetization opportunities</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-4">With ZYNC</h3>
+                    <ul class="space-y-3 text-left text-sm">
+                        <li class="flex items-start">
+                            <span class="text-green-500 text-xl mr-2">✓</span>
+                            <span>30 minutes/week automated workflow</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 text-xl mr-2">✓</span>
+                            <span>Single platform for all needs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 text-xl mr-2">✓</span>
+                            <span>Consistent, optimized branding</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 text-xl mr-2">✓</span>
+                            <span>Automated brand partnerships</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
+        <!-- Slide 6: Market Opportunity -->
         <section id="slide-6" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
             <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                Capturing a Trillion-Dollar Creator Economy
+                $480B Creator Economy Waiting for Disruption
             </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                The creator economy is a massive, growing market, with Gen Z at its forefront. ZYNC is positioned to capture a significant share by solving critical inefficiencies.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <p class="text-5xl md:text-6xl font-bold stat-value mb-2">$480B+</p>
-                    <p class="text-md md:text-lg text-gray-600">Projected Creator Economy by 2027 (TAM)</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Market Validation</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">💰</span>
+                            <div>
+                                <p class="text-2xl font-bold">$352M</p>
+                                <p class="text-sm">Annual brand sales on ShopMy</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">📈</span>
+                            <div>
+                                <p class="text-2xl font-bold">650%</p>
+                                <p class="text-sm">ShopMy's revenue growth in 2024</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">👥</span>
+                            <div>
+                                <p class="text-2xl font-bold">100,000+</p>
+                                <p class="text-sm">Creators earning on ShopMy</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <p class="text-5xl md:text-6xl font-bold stat-value mb-2">10M+</p>
-                    <p class="text-md md:text-lg text-gray-600">Active Multi-Platform Gen Z Creators (SAM)</p>
-                </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <p class="text-5xl md:text-6xl font-bold stat-value mb-2">500K+</p>
-                    <p class="text-md md:text-lg text-gray-600">Targeted Paid Users in 3-5 Years (SOM)</p>
+                
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-4">ZYNC's Target Opportunity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">🎯</span>
+                            <div>
+                                <p class="text-2xl font-bold">10M+</p>
+                                <p class="text-sm">Multi-platform Gen Z creators</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">🚀</span>
+                            <div>
+                                <p class="text-2xl font-bold">500K+</p>
+                                <p class="text-sm">Target paid users in 3 years</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">💸</span>
+                            <div>
+                                <p class="text-2xl font-bold">$100M+</p>
+                                <p class="text-sm">Annual revenue potential</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto mt-12">
-                The market is rapidly expanding, with increasing brand investment in influencer marketing and a growing demand for streamlined content workflows.
-            </p>
+            
+            <div class="card p-6 w-full max-w-3xl">
+                <h3 class="text-xl font-semibold mb-4">Why Now?</h3>
+                <ul class="text-left space-y-2">
+                    <li>Platform fragmentation has reached critical levels with 8+ major video platforms</li>
+                    <li>Gen Z creators demand mobile-first, all-in-one solutions</li>
+                    <li>AI technology now enables true cross-platform optimization</li>
+                    <li>Brands are increasing creator marketing budgets by 30% YoY</li>
+                </ul>
+            </div>
         </section>
 
+        <!-- Slide 7: Growth Flywheel -->
         <section id="slide-7" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
             <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                Strategic Acquisition: Reaching Our Creators & Brands
+                The ZYNC Growth Flywheel
             </h2>
             <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                Our multi-pronged Go-to-Market strategy focuses on efficient customer acquisition and leveraging network effects.
+                Our self-reinforcing ecosystem drives exponential growth
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto">
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <div class="text-5xl mb-4 highlight-text-1">🤳</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Creator-Led Growth</h3>
-                    <p class="text-gray-600 text-sm">Partner with key Gen Z influencers for authentic endorsements and viral adoption. Freemium model drives organic sign-ups.</p>
+            
+            <div class="relative w-full max-w-2xl mx-auto">
+                <!-- Flywheel Graphic -->
+                <div class="flex flex-col items-center">
+                    <!-- Step 1 -->
+                    <div class="flywheel-step">
+                        <div class="text-3xl mb-2">🎁</div>
+                        <h3 class="font-bold">Free Core Tools</h3>
+                        <p class="text-sm">Acquire users at scale</p>
+                    </div>
+                    
+                    <!-- Arrow -->
+                    <div class="my-4 text-4xl text-blue-500">↓</div>
+                    
+                    <!-- Step 2 -->
+                    <div class="flywheel-step">
+                        <div class="text-3xl mb-2">📊</div>
+                        <h3 class="font-bold">Data Network Effects</h3>
+                        <p class="text-sm">More creators → better AI</p>
+                    </div>
+                    
+                    <!-- Arrow -->
+                    <div class="my-4 text-4xl text-blue-500">↓</div>
+                    
+                    <!-- Step 3 -->
+                    <div class="flywheel-step">
+                        <div class="text-3xl mb-2">💰</div>
+                        <h3 class="font-bold">Monetization Layer</h3>
+                        <p class="text-sm">Marketplace commissions</p>
+                    </div>
+                    
+                    <!-- Arrow -->
+                    <div class="my-4 text-4xl text-blue-500">↓</div>
+                    
+                    <!-- Step 4 -->
+                    <div class="flywheel-step">
+                        <div class="text-3xl mb-2">🔄</div>
+                        <h3 class="font-bold">Ecosystem Lock-in</h3>
+                        <p class="text-sm">Creators stay → brands join</p>
+                    </div>
                 </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <div class="text-5xl mb-4 highlight-text-2">🚀</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Performance Marketing</h3>
-                    <p class="text-gray-600 text-sm">Targeted digital campaigns on social media (TikTok, Instagram) and creator forums to acquire users at optimal CAC.</p>
-                </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <div class="text-5xl mb-4 highlight-text-3">🤝</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Brand & Agency Partnerships</h3>
-                    <p class="text-gray-600 text-sm">Direct outreach to emerging DTC brands and creator agencies to onboard them onto the matchmaking engine.</p>
-                </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center md:col-span-1 lg:col-span-full">
-                    <div class="text-5xl mb-4 highlight-text-4">✨</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Community & Education</h3>
-                    <p class="text-gray-600 text-sm">Build a vibrant ZYNC creator community, offering tutorials and best practices to drive engagement and retention.</p>
+            </div>
+            
+            <div class="mt-12 max-w-2xl">
+                <h3 class="text-2xl font-semibold mb-4">Sustainable Competitive Advantage</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="card p-4">
+                        <h4 class="font-bold mb-2">AI Data Moat</h4>
+                        <p class="text-sm">Proprietary algorithms improve with every upload</p>
+                    </div>
+                    <div class="card p-4">
+                        <h4 class="font-bold mb-2">Creator Economy</h4>
+                        <p class="text-sm">Network effects strengthen with scale</p>
+                    </div>
+                    <div class="card p-4">
+                        <h4 class="font-bold mb-2">Full Workflow Coverage</h4>
+                        <p class="text-sm">Complete solution prevents churn</p>
+                    </div>
+                    <div class="card p-4">
+                        <h4 class="font-bold mb-2">Mobile-First Design</h4>
+                        <p class="text-sm">Built for Gen Z creators on the go</p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Slide 8: Traction -->
         <section id="slide-8" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
             <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                Early Momentum: Validating Our Vision
+                Early Traction: Validating Demand
             </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                We've achieved significant traction in a short period, demonstrating strong product-market fit and a clear growth trajectory.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <p class="text-5xl md:text-6xl font-bold highlight-text-3 mb-2">10,000+</p>
-                    <p class="text-md md:text-lg text-gray-600 mb-6 text-center">Beta Users Acquired (MoM Growth)</p>
-                    <h3 class="text-2xl font-semibold subsection-title mb-4 text-center">User Growth Trajectory</h3>
-                    <p class="text-gray-600 mb-6 text-center text-sm">Strong month-over-month user growth validates demand for a unified platform.</p>
-                    <div class="chart-container h-[250px] md:h-[300px]">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-4">User Growth</h3>
+                    <div class="chart-container h-[250px]">
                         <canvas id="userGrowthChart"></canvas>
                     </div>
+                    <div class="mt-4 grid grid-cols-2 gap-4">
+                        <div class="card p-3">
+                            <p class="text-xl font-bold">85%</p>
+                            <p class="text-sm">Retention Rate</p>
+                        </div>
+                        <div class="card p-3">
+                            <p class="text-xl font-bold">20+</p>
+                            <p class="text-sm">Videos/user/month</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card p-6 md:p-8">
-                    <h3 class="text-2xl font-semibold subsection-title mb-6 text-center">Key Validation Metrics</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-3 highlight-text-4">✅</span>
-                            <div>
-                                <h4 class="font-semibold text-lg">85% User Retention (Beta)</h4>
-                                <p class="text-gray-600 text-sm">High engagement indicates strong product stickiness.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-3 highlight-text-1">🚀</span>
-                            <div>
-                                <h4 class="font-semibold text-lg">20+ Videos Published per User (Avg.)</h4>
-                                <p class="text-gray-600 text-sm">Demonstrates active utilization of multi-platform publishing features.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-3 highlight-text-2">💬</span>
-                            <div>
-                                <h4 class="font-semibold text-lg">Overwhelming Positive Feedback</h4>
-                                <p class="text-gray-600 text-sm">Beta users praise time-saving AI and seamless publishing.</p>
-                            </div>
-                        </li>
-                    </ul>
+                
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Beta User Feedback</h3>
+                    <div class="space-y-4 text-left">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <p class="italic">"ZYNC cut my publishing time from 3 hours to 20 minutes per video"</p>
+                            <p class="text-sm mt-2">- @DigitalCreator, 250K followers</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <p class="italic">"The AI adaptation is scarily accurate - better than my human editor"</p>
+                            <p class="text-sm mt-2">- @TravelVlogger, 180K followers</p>
+                        </div>
+                        <div class="border-l-4 border-yellow-500 pl-4">
+                            <p class="italic">"Landed 3 brand deals in my first month using ZYNC"</p>
+                            <p class="text-sm mt-2">- @FashionInfluencer, 90K followers</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-lg font-semibold">4.9/5 ★ Average Rating</p>
+                        <p class="text-sm">Based on 1,200+ beta user reviews</p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Slide 9: Roadmap -->
         <section id="slide-9" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
             <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                Scaling Innovation: Our Forward Path
+                Roadmap: Building the Future of Creation
             </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                Our ambitious roadmap focuses on expanding platform integrations, enhancing AI capabilities, and launching the full brand marketplace.
-            </p>
+            
             <div class="w-full max-w-5xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-left">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="card p-6">
-                        <h3 class="text-xl font-semibold subsection-title mb-3">Q3 2025: Core Expansion</h3>
-                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
-                            <li>Public Beta Launch</li>
-                            <li>Full TikTok & Facebook Integration</li>
-                            <li>Advanced AI Captioning & Translation</li>
-                            <li>Initial Brand Marketplace Pilot</li>
+                        <h3 class="text-xl font-semibold mb-3">2025: Core Platform</h3>
+                        <ul class="space-y-2 text-left text-sm">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <span>Multi-platform publishing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <span>AI video adaptation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">→</span>
+                                <span>Brand marketplace launch</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">→</span>
+                                <span>Advanced analytics</span>
+                            </li>
                         </ul>
                     </div>
+                    
                     <div class="card p-6">
-                        <h3 class="text-xl font-semibold subsection-title mb-3">Q4 2025: Monetization & AI Deep Dive</h3>
-                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
-                            <li>Full Brand Marketplace Launch</li>
-                            <li>AI-Powered Content Repurposing (Smart Highlights)</li>
-                            <li>LinkedIn Integration</li>
-                            <li>Team Collaboration Features V1</li>
+                        <h3 class="text-xl font-semibold mb-3">2026: Monetization & AI</h3>
+                        <ul class="space-y-2 text-left text-sm">
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">→</span>
+                                <span>Predictive content analytics</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">→</span>
+                                <span>AI-powered brand matching</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">→</span>
+                                <span>Creator subscription tiers</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">→</span>
+                                <span>Global expansion</span>
+                            </li>
                         </ul>
                     </div>
+                    
                     <div class="card p-6">
-                        <h3 class="text-xl font-semibold subsection-title mb-3">2026: Ecosystem & Scale</h3>
-                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
-                            <li>Predictive Analytics for Content Strategy</li>
-                            <li>API / White-label Offering</li>
-                            <li>Expanded AI Music & SFX Library</li>
-                            <li>Global Market Expansion</li>
+                        <h3 class="text-xl font-semibold mb-3">2027: Ecosystem</h3>
+                        <ul class="space-y-2 text-left text-sm">
+                            <li class="flex items-start">
+                                <span class="text-gray-500 mr-2">→</span>
+                                <span>API/white-label solutions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gray-500 mr-2">→</span>
+                                <span>Creator education platform</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gray-500 mr-2">→</span>
+                                <span>VR/AR content tools</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gray-500 mr-2">→</span>
+                                <span>Enterprise solutions</span>
+                            </li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 max-w-3xl">
+                <h3 class="text-2xl font-semibold mb-4">Technology Leadership</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="card p-3">
+                        <p class="text-lg font-bold">5</p>
+                        <p class="text-sm">Patents Pending</p>
+                    </div>
+                    <div class="card p-3">
+                        <p class="text-lg font-bold">10M+</p>
+                        <p class="text-sm">Video Dataset</p>
+                    </div>
+                    <div class="card p-3">
+                        <p class="text-lg font-bold">97%</p>
+                        <p class="text-sm">AI Accuracy</p>
+                    </div>
+                    <div class="card p-3">
+                        <p class="text-lg font-bold">&lt;1s</p>
+                        <p class="text-sm">Processing Time</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Slide 10: Business Model -->
         <section id="slide-10" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
             <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                Sustainable Growth: Our Multi-Faceted Revenue Model
+                Multi-Stream Revenue Model
             </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                ZYNC employs a diversified revenue strategy, ensuring sustainable growth and maximizing value capture from both creators and brands.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
-                <div class="card p-6 md:p-8">
-                    <h3 class="text-2xl font-semibold subsection-title mb-6 text-center">Freemium Subscription Model</h3>
-                    <ul class="space-y-4 text-left">
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-3 highlight-text-3">🆓</span>
-                            <div>
-                                <h4 class="font-semibold text-lg">Free Tier</h4>
-                                <p class="text-gray-600 text-sm">Limited uploads/month, basic analytics, up to 2 connected platforms. (User acquisition)</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-3 highlight-text-4">⭐</span>
-                            <div>
-                                <h4 class="font-semibold text-lg">Creator Pro Tier ($15–$30/month)</h4>
-                                <p class="text-gray-600 text-sm">Unlimited uploads, AI tools, multi-platform publishing, advanced analytics, brand matchmaking.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-3 highlight-text-1">💼</span>
-                            <div>
-                                <h4 class="font-semibold text-lg">Team/Agency Tier ($100–$500/month)</h4>
-                                <p class="text-gray-600 text-sm">Multiple users, shared assets, team collaboration, branded reporting, priority support.</p>
-                            </div>
-                        </li>
-                    </ul>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+                <div class="card p-6">
+                    <div class="text-4xl mb-4">💎</div>
+                    <h3 class="text-xl font-semibold mb-3">Creator Subscriptions</h3>
+                    <p class="text-lg font-bold">$15-50/user/month</p>
+                    <p class="text-sm mt-2">Freemium → Pro → Team tiers</p>
+                    <div class="mt-4 p-2 bg-blue-50 rounded">
+                        <p class="text-xs">Projected 60% of revenue by Year 3</p>
+                    </div>
                 </div>
-                <div class="card p-6 md:p-8">
-                    <h3 class="text-2xl font-semibold subsection-title mb-6 text-center">Additional Revenue Streams</h3>
-                    <ul class="space-y-4 text-left">
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-3 highlight-text-2">💰</span>
-                            <div>
-                                <h4 class="font-semibold text-lg">Brand Collaboration Marketplace Commission</h4>
-                                <p class="text-gray-600 text-sm">5–10% commission per successful brand-creator partnership facilitated on ZYNC.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-3 highlight-text-3">➕</span>
-                            <div>
-                                <h4 class="font-semibold text-lg">Add-on AI Tools / Credit Packs</h4>
-                                <p class="text-gray-600 text-sm">Pay-as-you-go or monthly credits for premium AI services (e.g., voiceovers, advanced highlight generation).</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-3 highlight-text-4">🔑</span>
-                            <div>
-                                <h4 class="font-semibold text-lg">API/White-label Licensing (Enterprise Future)</h4>
-                                <p class="text-gray-600 text-sm">Provide ZYNC's technology as a white-label or API offering to large media/marketing agencies.</p>
-                            </div>
-                        </li>
-                    </ul>
+                
+                <div class="card p-6">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-xl font-semibold mb-3">Marketplace Commission</h3>
+                    <p class="text-lg font-bold">5-10% per deal</p>
+                    <p class="text-sm mt-2">Brand-creator partnerships</p>
+                    <div class="mt-4 p-2 bg-green-50 rounded">
+                        <p class="text-xs">Projected 30% of revenue by Year 3</p>
+                    </div>
+                </div>
+                
+                <div class="card p-6">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-semibold mb-3">Enterprise Solutions</h3>
+                    <p class="text-lg font-bold">$10K-50K/year</p>
+                    <p class="text-sm mt-2">Agencies & brand teams</p>
+                    <div class="mt-4 p-2 bg-yellow-50 rounded">
+                        <p class="text-xs">Projected 10% of revenue by Year 3</p>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <section id="slide-11" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
-            <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                ZYNC's Edge: Unifying the Fragmented Market
-            </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                We operate at the intersection of efficiency and opportunity, uniquely positioned to dominate the multi-platform creator market.
-            </p>
-            <div class="w-full max-w-4xl mx-auto card p-6 md:p-8">
-                <div class="grid grid-cols-2 grid-rows-2 text-gray-800 font-semibold text-lg">
-                    <div class="competitive-cell border-b border-r">Basic Tools (e.g., CapCut)</div>
-                    <div class="competitive-cell border-b">Scheduling Tools (e.g., Later)</div>
-                    <div class="competitive-cell border-r">Creator Marketplaces (e.g., AspireIQ)</div>
-                    <div class="competitive-cell zync">ZYNC</div>
-                </div>
-                <div class="flex justify-between text-sm text-gray-600 mt-4">
-                    <span class="text-left">Low AI & Collaboration</span>
-                    <span class="text-right">High AI & Collaboration</span>
-                </div>
-                <div class="flex flex-col items-center text-sm text-gray-600 mt-2">
-                    <span class="mb-1">↑</span>
-                    <span>Unified Workflow</span>
-                    <span>↓</span>
-                </div>
-            </div>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto mt-10">
-                While competitors offer partial solutions, ZYNC provides a **holistic, AI-powered ecosystem** that covers the entire creator workflow, from content adaptation to brand monetization.
-            </p>
-        </section>
-
-        <section id="slide-12" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
-            <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                Our Unfair Advantage: The ZYNC Moat
-            </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                Our defensible advantages ensure long-term market leadership and create high barriers to entry for competitors.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <div class="text-5xl mb-4 highlight-text-4">🧠</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Proprietary AI Algorithms</h3>
-                    <p class="text-gray-600 text-sm">Unique AI models for content adaptation, metadata optimization, and intelligent brand matchmaking, refined by user data.</p>
-                </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <div class="text-5xl mb-4 highlight-text-3">🔗</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Deep Platform Integrations</h3>
-                    <p class="text-gray-600 text-sm">Robust, secure, and resilient integrations with all major social media APIs, built for scale and continuous updates.</p>
-                </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <div class="text-5xl mb-4 highlight-text-2">🌐</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Network Effects (Marketplace)</h3>
-                    <p class="text-gray-600 text-sm">As more creators and brands join, the value of the matchmaking engine increases exponentially for all participants.</p>
-                </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
-                    <div class="text-5xl mb-4 highlight-text-1">🔐</div>
-                    <h3 class="text-2xl font-semibold subsection-title mb-3">Enterprise-Grade Security</h3>
-                    <p class="text-gray-600 text-sm">Industry-leading security protocols for OAuth2, token management, and media pipelines, building unmatched trust.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="slide-13" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
-            <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                The Architects of ZYNC
-            </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                Our diverse team brings together deep expertise in SaaS, AI, creator economy, and scalable technology.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto">
-                <div class="card p-6 md:p-8 flex flex-col items-center text-center">
-                    <div class="team-photo mb-4">CEO</div>
-                    <h3 class="text-xl font-semibold subsection-title">Vaibhav Tiwari</h3>
-                    <p class="text-gray-600 text-sm mb-2">Founder & CEO</p>
-                    <p class="text-gray-700 text-xs">8+ years in SaaS product management, scaled B2B platform to $5M ARR. Deep understanding of creator workflows.</p>
-                </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center text-center">
-                    <div class="team-photo mb-4">CTO</div>
-                    <h3 class="text-xl font-semibold subsection-title">Lokesh Bhagtani</h3>
-                    <p class="text-gray-600 text-sm mb-2">Co-Founder & CTO</p>
-                    <p class="text-gray-700 text-xs">10+ years in scalable cloud architecture (AWS/GCP), expertise in video processing and API integrations. Ex-Google engineer.</p>
-                </div>
-                <div class="card p-6 md:p-8 flex flex-col items-center text-center">
-                    <div class="team-photo mb-4">CMO</div>
-                    <h3 class="text-xl font-semibold subsection-title">Devesh Tiwari</h3>
-                    <p class="text-gray-600 text-sm mb-2">Head of Community & Marketing</p>
-                    <p class="text-gray-700 text-xs">Gen Z creator with 500K+ followers, deep insights into creator needs and trends. Built strong online communities.</p>
-                </div>
-            </div>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto mt-12">
-                We are the right team, with the right expertise, at the right time, to revolutionize the creator economy.
-            </p>
-        </section>
-
-        <section id="slide-14" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
-            <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                Investing in the Future: Our Seed Round
-            </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                We are seeking **$1.5 Million in Seed Round Angel Investment** to accelerate our growth and achieve critical milestones.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
-                <div class="card p-6 md:p-8">
-                    <h3 class="text-2xl font-semibold subsection-title mb-6 text-center">Use of Funds Allocation</h3>
-                    <ul class="space-y-3 text-sm text-left">
-                        <li class="flex items-start p-3 rounded-md bg-opacity-10" style="background-color: rgba(17, 138, 178, 0.1);">
-                            <span class="text-xl mr-3 highlight-text-4">50%</span>
-                            <span><strong>Product Development:</strong> Accelerate AI features, expand platform integrations, scale backend.</span>
-                        </li>
-                        <li class="flex items-start p-3 rounded-md bg-opacity-10" style="background-color: rgba(6, 214, 160, 0.1);">
-                            <span class="text-xl mr-3 highlight-text-3">30%</span>
-                            <span><strong>Marketing & User Acquisition:</strong> Creator-led growth, performance marketing, community building.</span>
-                        </li>
-                        <li class="flex items-start p-3 rounded-md bg-opacity-10" style="background-color: rgba(255, 209, 102, 0.1);">
-                            <span class="text-xl mr-3 highlight-text-2">20%</span>
-                            <span><strong>Team Expansion & Operations:</strong> Key hires (engineering, biz dev), operational costs.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card p-6 md:p-8">
-                    <h3 class="text-2xl font-semibold subsection-title mb-6 text-center">Key Milestones with this Round</h3>
-                    <ul class="space-y-3 text-sm text-left">
-                        <li class="flex items-start p-3 rounded-md bg-opacity-10" style="background-color: rgba(255, 107, 107, 0.1);">
-                            <span class="text-xl mr-3 highlight-text-1">🎯</span>
-                            <span>Achieve **100,000 active users** within 12 months.</span>
-                        </li>
-                        <li class="flex items-start p-3 rounded-md bg-opacity-10" style="background-color: rgba(255, 209, 102, 0.1);">
-                            <span class="text-xl mr-3 highlight-text-2">🚀</span>
-                            <span>Launch **full TikTok & Facebook integrations** and advanced AI tools.</span>
-                        </li>
-                        <li class="flex items-start p-3 rounded-md bg-opacity-10" style="background-color: rgba(6, 214, 160, 0.1);">
-                            <span class="text-xl mr-3 highlight-text-3">💰</span>
-                            <span>Facilitate **first 100 brand collaborations** through the marketplace.</span>
-                        </li>
-                        <li class="flex items-start p-3 rounded-md bg-opacity-10" style="background-color: rgba(17, 138, 178, 0.1);">
-                            <span class="text-xl mr-3 highlight-text-4">📈</span>
-                            <span>Position for **Series A funding** by Q4 2026.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="slide-15" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
-            <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                Rapid Growth: Our Financial Trajectory
-            </h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
-                Our projections demonstrate aggressive, yet achievable, revenue growth driven by user adoption and monetization expansion.
-            </p>
-            <div class="card p-6 md:p-8 w-full max-w-4xl mx-auto">
-                <h3 class="text-2xl font-semibold subsection-title mb-6 text-center">Projected Annual Revenue (USD)</h3>
-                <div class="chart-container h-[300px] md:h-[350px]">
+            
+            <div class="w-full max-w-3xl card p-6">
+                <h3 class="text-2xl font-semibold mb-4">Financial Projections</h3>
+                <div class="chart-container h-[300px]">
                     <canvas id="revenueProjectionChart"></canvas>
                 </div>
-                <p class="text-md text-gray-600 mt-6 text-center">
-                    **Key Assumptions:** 10% paid conversion rate from active users, average ARPU of $20/month for Pro Tier, 8% commission on brand deals (avg. $500/deal).
-                </p>
+                <div class="mt-4 grid grid-cols-3 gap-4">
+                    <div class="card p-2">
+                        <p class="font-bold">Year 1</p>
+                        <p>$1.5M ARR</p>
+                    </div>
+                    <div class="card p-2">
+                        <p class="font-bold">Year 2</p>
+                        <p>$12M ARR</p>
+                    </div>
+                    <div class="card p-2">
+                        <p class="font-bold">Year 3</p>
+                        <p>$60M ARR</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="slide-16" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
+        <!-- Slide 11: Team -->
+        <section id="slide-11" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
             <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
-                Join the ZYNC Revolution
+                World-Class Team Building the Future
             </h2>
-            <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
-                We are building the essential infrastructure for the next generation of digital creators. Invest in ZYNC, invest in the future of content.
-            </p>
-            <div class="card p-8 flex flex-col items-center justify-center">
-                <h3 class="text-2xl font-bold subsection-title mb-4">Contact Us</h3>
-                <p class="text-lg text-gray-700 mb-2">Vaibhav Tiwari, CEO</p>
-                <p class="text-lg text-gray-700 mb-2">Email: invest@zync.com</p>
-                <p class="text-lg text-gray-700 mb-6">Website: www.zync.com</p>
-                <p class="text-xl font-semibold text-gray-800">Thank You.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+                <div class="card p-6 flex flex-col items-center">
+                    <div class="team-photo mb-4">VT</div>
+                    <h3 class="text-xl font-semibold">Vaibhav Tiwari</h3>
+                    <p class="text-gray-600 text-sm mb-2">Founder & CEO</p>
+                    <p class="text-gray-700 text-sm">Scaled B2B SaaS to $5M ARR, Creator Economy Expert</p>
+                </div>
+                
+                <div class="card p-6 flex flex-col items-center">
+                    <div class="team-photo mb-4">LB</div>
+                    <h3 class="text-xl font-semibold">Lokesh Bhagtani</h3>
+                    <p class="text-gray-600 text-sm mb-2">Co-Founder & CTO</p>
+                    <p class="text-gray-700 text-sm">Ex-Google, Cloud Architecture Expert, 10+ Years Experience</p>
+                </div>
+                
+                <div class="card p-6 flex flex-col items-center">
+                    <div class="team-photo mb-4">DT</div>
+                    <h3 class="text-xl font-semibold">Devesh Tiwari</h3>
+                    <p class="text-gray-600 text-sm mb-2">Head of Community</p>
+                    <p class="text-gray-700 text-sm">500K+ Creator, Gen Z Marketing Specialist</p>
+                </div>
             </div>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto mt-12">
-                Questions? We're ready to discuss.
-            </p>
+            
+            <div class="max-w-3xl">
+                <h3 class="text-2xl font-semibold mb-4">Advisors & Backers</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="card p-4 flex items-center justify-center">
+                        <p>Ex-YouTube PM</p>
+                    </div>
+                    <div class="card p-4 flex items-center justify-center">
+                        <p>TikTok Growth Expert</p>
+                    </div>
+                    <div class="card p-4 flex items-center justify-center">
+                        <p>AI Research Lead</p>
+                    </div>
+                    <div class="card p-4 flex items-center justify-center">
+                        <p>Creator Fund Partner</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: Investment -->
+        <section id="slide-12" class="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24">
+            <h2 class="text-4xl sm:text-5xl font-bold section-title leading-tight mb-10 md:mb-12">
+                Join the Creator Revolution
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Seed Round: $1.5M</h3>
+                    <div class="space-y-4 text-left">
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">💻</span>
+                            <div>
+                                <p class="text-xl font-bold">50% Product Development</p>
+                                <p class="text-sm">AI features, platform integrations, scaling</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">📣</span>
+                            <div>
+                                <p class="text-xl font-bold">30% Marketing & User Acquisition</p>
+                                <p class="text-sm">Creator partnerships, performance marketing</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">👥</span>
+                            <div>
+                                <p class="text-xl font-bold">20% Team & Operations</p>
+                                <p class="text-sm">Key hires, infrastructure, legal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Milestones</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">🎯</span>
+                            <div>
+                                <p class="text-xl font-bold">100,000 MAU</p>
+                                <p class="text-sm">Within 12 months</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">🚀</span>
+                            <div>
+                                <p class="text-xl font-bold">Full Platform Launch</p>
+                                <p class="text-sm">Q4 2025</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3">💰</span>
+                            <div>
+                                <p class="text-xl font-bold">Series A Ready</p>
+                                <p class="text-sm">Q4 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card p-8 w-full max-w-md">
+                <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+                <p class="text-lg mb-2">Vaibhav Tiwari, CEO</p>
+                <p class="text-lg mb-2">invest@zync.com</p>
+                <p class="text-lg mb-4">www.zync.com</p>
+                <div class="mt-6">
+                    <p class="text-xl font-semibold">The future of content creation is unified.</p>
+                    <p class="text-lg mt-2">Join us.</p>
+                </div>
+            </div>
         </section>
 
     </div>
 
 <script>
-    const processLabel = (label, maxLength = 16) => {
-        if (typeof label !== 'string') return label; 
-        if (label.length > maxLength) {
-            const words = label.split(' ');
-            const lines = [];
-            let currentLine = '';
-            for (const word of words) {
-                if ((currentLine + word).length > maxLength && currentLine.length > 0) {
-                    lines.push(currentLine.trim());
-                    currentLine = word + ' ';
-                } else {
-                    currentLine += word + ' ';
-                }
-            }
-            if (currentLine.trim().length > 0) {
-                 lines.push(currentLine.trim());
-            }
-            return lines.length > 0 ? lines : [label]; 
-        }
-        return label;
-    };
-
-    const chartJsTooltipCallbacks = {
-        title: function(tooltipItems) {
-            const item = tooltipItems[0];
-            if (!item || !item.chart || !item.chart.data || !item.chart.data.labels || typeof item.dataIndex === 'undefined') {
-                return '';
-            }
-            let label = item.chart.data.labels[item.dataIndex];
-            if (Array.isArray(label)) {
-                return label.join(' ');
-            }
-            return label || '';
-        }
-    };
-
-    const palette = {
-        coralRed: '#FF6B6B',
-        sunnyYellow: '#FFD166',
-        turquoiseGreen: '#06D6A0',
-        ceruleanBlue: '#118AB2',
-        midnightBlue: '#073B4C',
-        white: '#FFFFFF',
-        lightGray: '#F7FAFC'
-    };
-
-    const commonChartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { 
-            legend: { 
-                display: false 
-            }, 
-            tooltip: { 
-                callbacks: chartJsTooltipCallbacks,
-                backgroundColor: palette.midnightBlue,
-                titleColor: palette.white,
-                bodyColor: palette.white,
-                bodyFont: {
-                    size: 14 
-                },
-                titleFont: {
-                    size: 16,
-                    weight: 'bold'
-                },
-                padding: 12,
-                boxPadding: 4,
-                cornerRadius: 6,
-            } 
-        },
-        scales: {
-            y: { 
-                beginAtZero: true, 
-                grid: { color: 'rgba(7, 59, 76, 0.1)', drawBorder: false }, 
-                ticks: { color: palette.midnightBlue, font: { size: 12 } } 
-            },
-            x: { 
-                grid: { display: false }, 
-                ticks: { color: palette.midnightBlue, font: { size: 12 } } 
-            }
-        }
-    };
-
+    // Chart data and configurations
     const timeWastedData = {
-        labels: [
-            processLabel('Manual Upload & Customization'), 
-            processLabel('Cross-Platform Analytics Aggregation'), 
-            processLabel('Content Repurposing & Formatting')
-        ],
+        labels: ['Manual Formatting', 'Platform Switching', 'Content Adaptation', 'Analytics Review'],
         datasets: [{
-            label: 'Average Hours Spent (Weekly)',
-            data: [7, 4, 5],
-            backgroundColor: [
-                palette.coralRed,
-                palette.sunnyYellow,
-                palette.turquoiseGreen
-            ],
-            borderRadius: 6,
-            barPercentage: 0.7,
-            categoryPercentage: 0.7
+            label: 'Hours per Week',
+            data: [5, 4, 4, 3],
+            backgroundColor: '#118AB2',
+            borderRadius: 6
         }]
     };
-    new Chart(document.getElementById('timeWastedChart'), {
-        type: 'bar',
-        data: timeWastedData,
-        options: { 
-            ...commonChartOptions,
-            scales: {
-                y: {
-                    ...commonChartOptions.scales.y,
-                    title: {
-                        display: true,
-                        text: 'Hours per Week',
-                        color: palette.midnightBlue,
-                        font: { size: 14, weight: 'bold' }
-                    }
-                },
-                x: {
-                    ...commonChartOptions.scales.x,
-                    title: {
-                        display: true,
-                        text: 'Inefficient Tasks',
-                        color: palette.midnightBlue,
-                        font: { size: 14, weight: 'bold' }
-                    }
-                }
-            }
-        }
-    });
-
+    
     const userGrowthData = {
-        labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
         datasets: [{
             label: 'Active Users',
-            data: [1000, 2500, 4500, 7000, 10000, 13000],
-            borderColor: palette.ceruleanBlue,
-            backgroundColor: 'rgba(17, 138, 178, 0.2)',
+            data: [1000, 3500, 7500, 15000, 30000, 50000],
+            borderColor: '#06D6A0',
+            backgroundColor: 'rgba(6, 214, 160, 0.1)',
             tension: 0.4,
             fill: true
         }]
     };
-    const userGrowthOptions = {
-        ...commonChartOptions,
-        scales: {
-            y: {
-                ...commonChartOptions.scales.y,
-                title: {
-                    display: true,
-                    text: 'Active Users',
-                    color: palette.midnightBlue,
-                    font: { size: 14, weight: 'bold' }
-                },
-                ticks: {
-                    callback: function(value) {
-                        return value / 1000 + 'K';
-                    }
-                }
-            },
-            x: {
-                ...commonChartOptions.scales.x,
-                title: {
-                    display: true,
-                    text: 'Months',
-                    color: palette.midnightBlue,
-                    font: { size: 14, weight: 'bold' }
-                }
-            }
-        }
+    
+    const revenueProjectionData = {
+        labels: ['2025', '2026', '2027', '2028'],
+        datasets: [{
+            label: 'Projected Revenue ($M)',
+            data: [1.5, 12, 60, 150],
+            borderColor: '#118AB2',
+            backgroundColor: 'rgba(17, 138, 178, 0.1)',
+            tension: 0.4,
+            fill: true
+        }]
     };
-    new Chart(document.getElementById('userGrowthChart'), {
-        type: 'line',
-        data: userGrowthData,
-        options: { ...userGrowthOptions }
-    });
-
-    const reachGrowthData = {
-        labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-        datasets: [
-            {
-                label: 'Manual Publishing Growth',
-                data: [100000, 110000, 125000, 130000],
-                borderColor: palette.sunnyYellow,
-                backgroundColor: 'rgba(255, 209, 102, 0.2)',
-                tension: 0.4,
-                fill: true
-            },
-            {
-                label: 'Automated Publishing Growth (ZYNC)',
-                data: [100000, 130000, 170000, 220000],
-                borderColor: palette.turquoiseGreen,
-                backgroundColor: 'rgba(6, 214, 160, 0.2)',
-                tension: 0.4,
-                fill: true
-            }
-        ]
-    };
-    const reachGrowthOptions = {
-        ...commonChartOptions,
+    
+    // Common chart options
+    const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
-            ...commonChartOptions.plugins,
-            legend: { 
-                display: true,
-                position: 'bottom',
-                labels: {
-                    color: palette.midnightBlue,
-                    font: { size: 12 }
-                }
-            }
+            legend: { display: false }
         },
         scales: {
-            y: {
-                ...commonChartOptions.scales.y,
-                title: {
-                    display: true,
-                    text: 'Audience Reach (Est.)',
-                    color: palette.midnightBlue,
-                    font: { size: 14, weight: 'bold' }
-                },
-                ticks: {
-                    callback: function(value) {
-                        return value / 1000 + 'K';
+            y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+            x: { grid: { display: false } }
+        }
+    };
+    
+    // Initialize charts
+    window.onload = function() {
+        // Time Wasted Chart
+        new Chart(document.getElementById('timeWastedChart'), {
+            type: 'bar',
+            data: timeWastedData,
+            options: chartOptions
+        });
+        
+        // User Growth Chart
+        new Chart(document.getElementById('userGrowthChart'), {
+            type: 'line',
+            data: userGrowthData,
+            options: chartOptions
+        });
+        
+        // Revenue Projection Chart
+        new Chart(document.getElementById('revenueProjectionChart'), {
+            type: 'line',
+            data: revenueProjectionData,
+            options: {
+                ...chartOptions,
+                scales: {
+                    ...chartOptions.scales,
+                    y: { 
+                        ...chartOptions.scales.y,
+                        ticks: { callback: value => '$' + value + 'M' }
                     }
                 }
-            },
-            x: {
-                ...commonChartOptions.scales.x,
-                 title: {
-                    display: true,
-                    text: 'Quarter',
-                    color: palette.midnightBlue,
-                    font: { size: 14, weight: 'bold' }
-                }
             }
-        }
+        });
     };
-    new Chart(document.getElementById('reachGrowthChart'), {
-        type: 'line',
-        data: reachGrowthData,
-        options: { ...reachGrowthOptions }
-    });
-
-    const monetizationDiversityData = {
-        labels: [
-            processLabel('Ad Revenue'), 
-            processLabel('Brand Partnerships'), 
-            processLabel('Subscriptions & Fan Funding'), 
-            processLabel('Merchandise & Digital Products')
-        ],
-        datasets: [{
-            data: [35, 30, 20, 15],
-            backgroundColor: [
-                palette.coralRed,
-                palette.sunnyYellow,
-                palette.turquoiseGreen,
-                palette.ceruleanBlue
-            ],
-            hoverOffset: 4
-        }]
-    };
-    const monetizationDiversityOptions = {
-        ...commonChartOptions,
-        plugins: {
-            ...commonChartOptions.plugins,
-            legend: { 
-                display: true,
-                position: 'right',
-                labels: {
-                    color: palette.midnightBlue,
-                    font: { size: 12 },
-                    boxWidth: 20
-                }
-            },
-            tooltip: {
-                ...commonChartOptions.plugins.tooltip,
-                callbacks: {
-                    label: function(context) {
-                        let label = context.label || '';
-                        if (label) {
-                            label += ': ';
-                        }
-                        if (context.parsed !== null) {
-                            label += context.parsed + '%';
-                        }
-                        return label;
-                    },
-                    title: chartJsTooltipCallbacks.title
-                }
-            }
-        }
-    };
-    new Chart(document.getElementById('monetizationDiversityChart'), {
-        type: 'doughnut',
-        data: monetizationDiversityData,
-        options: { ...monetizationDiversityOptions }
-    });
-
-    const revenueProjectionData = {
-        labels: ['Year 1 (2025)', 'Year 2 (2026)', 'Year 3 (2027)', 'Year 4 (2028)', 'Year 5 (2029)'],
-        datasets: [{
-            label: 'Projected Annual Revenue (USD)',
-            data: [1.25, 12.5, 62.5, 150, 300], // In millions, conceptual
-            borderColor: palette.ceruleanBlue,
-            backgroundColor: 'rgba(17, 138, 178, 0.2)',
-            tension: 0.4,
-            fill: true
-        }]
-    };
-    const revenueProjectionOptions = {
-        ...commonChartOptions,
-        scales: {
-            y: {
-                ...commonChartOptions.scales.y,
-                title: {
-                    display: true,
-                    text: 'Revenue (Millions USD)',
-                    color: palette.midnightBlue,
-                    font: { size: 14, weight: 'bold' }
-                },
-                ticks: {
-                    callback: function(value) {
-                        return '$' + value + 'M';
-                    }
-                }
-            },
-            x: {
-                ...commonChartOptions.scales.x,
-                title: {
-                    display: true,
-                    text: 'Year',
-                    color: palette.midnightBlue,
-                    font: { size: 14, weight: 'bold' }
-                }
-            }
-        }
-    };
-    new Chart(document.getElementById('revenueProjectionChart'), {
-        type: 'line',
-        data: revenueProjectionData,
-        options: { ...revenueProjectionOptions }
-    });
-
 </script>
 </body>
 </html>
